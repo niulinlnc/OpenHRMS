@@ -393,8 +393,14 @@ group by hr_employee.department_id,hr_department.name""")
             """ % (month_date[0], month_date[0], month_date[0],))
             month_emp = self._cr.fetchone()
             # month_emp = (month_emp[0], month_emp[1].split(' ')[:1][0].strip()[:3])
-            match_join = list(filter(lambda d: d['l_month'] == month_emp[1].split(' ')[:1][0].strip()[:3], month_join))[0]['count']
-            match_resign = list(filter(lambda d: d['l_month'] == month_emp[1].split(' ')[:1][0].strip()[:3], month_resign))[0]['count']
+            if list(filter(lambda d: d['l_month'] == month_emp[1].split(' ')[:1][0].strip()[:3], month_join)):
+                match_join = list(filter(lambda d: d['l_month'] == month_emp[1].split(' ')[:1][0].strip()[:3], month_join))[0]['count']
+            else:
+                match_join = 0
+            if list(filter(lambda d: d['l_month'] == month_emp[1].split(' ')[:1][0].strip()[:3], month_resign)):
+                match_resign = list(filter(lambda d: d['l_month'] == month_emp[1].split(' ')[:1][0].strip()[:3], month_resign))[0]['count']
+            else:
+                match_resign = 0
             month_avg = (month_emp[0]+match_join-match_resign+month_emp[0])/2
             attrition_rate = (match_resign/month_avg)*100 if month_avg != 0 else 0
             vals = {
