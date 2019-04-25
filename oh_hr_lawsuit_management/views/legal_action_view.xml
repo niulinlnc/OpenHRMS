@@ -77,10 +77,6 @@
             <field name="name">hr.lawsuit.search</field>
             <field name="model">hr.lawsuit</field>
             <field name="arch" type="xml">
-                <group expand="0" string="Group By">
-                    <filter string="Status" context="{'group_by':'state'}"/>
-                    <filter string="Employee" context="{'group_by':'employee_id'}"/>
-                </group>
                 <search string="Legal Actions">
                     <field name="name"/>
                     <field name="party1"/>
@@ -90,6 +86,10 @@
                     <field name="lawyer"/>
                     <field name="requested_date"/>
                     <field name="state"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Status" name= "status" context="{'group_by':'state'}"/>
+                        <filter string="Employee" name= "employee" context="{'group_by':'employee_id'}"/>
+                    </group>
                 </search>
             </field>
         </record>
