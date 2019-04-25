@@ -168,8 +168,8 @@ class DisciplinaryAction(models.Model):
             if not rec.explanation:
                     raise ValidationError(_('You must give an explanation !!'))
         # 根据空格判断字符数量有问题，中文没有空格怎么办？
-        if len(self.explanation.split()) <5 : 
-                    raise ValidationError(_('Your explanation must contain at least 5 words   !!'))
+        # if len(self.explanation.split()) <5 : 
+        #             raise ValidationError(_('Your explanation must contain at least 5 words   !!'))
 
         self.write({
             'state' : 'submitted'

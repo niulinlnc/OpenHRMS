@@ -115,7 +115,7 @@ class HrCustody(models.Model):
     @api.multi
     def set_to_return(self):
         self.state = 'returned'
-        self.return_date = fields.datetime.now()
+        self.return_date = fields.datetime.now().strftime('%Y-%m-%d')
 
     # return date validation
     @api.constrains('return_date')
