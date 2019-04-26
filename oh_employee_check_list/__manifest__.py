@@ -31,7 +31,9 @@
     'website': "https://www.cybrosys.com",
     'depends': ['base', 'oh_employee_documents_expiry'],
     'data': [
+        'security/ir.model.access.csv',
         'views/employee_form_inherit_view.xml',
+        'views/employee_check_list_view.xml',
         'views/checklist_view.xml',
         'views/settings_view.xml',
     ],

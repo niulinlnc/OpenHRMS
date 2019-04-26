@@ -31,11 +31,12 @@
     'maintainer': 'Cybrosys Techno Solutions',
     'website': "https://www.openhrms.com",
     'depends': ['hr', 'hr_contract', 'oh_employee_creation_from_user'],
-    'data': ['views/employee_history.xml',
-             'views/history_views.xml',
-             'security/secure.xml',
-             'security/ir.model.access.csv'
-             ],
+    'data': [
+        'security/ir.model.access.csv',
+        'security/secure.xml',   
+        'views/employee_history.xml',
+        'views/history_views.xml',
+            ],
     'demo': [],
     'images': ['static/description/banner.gif'],
     'license': 'AGPL-3',

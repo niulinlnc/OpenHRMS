@@ -45,11 +45,7 @@ class HrEmployeeFamilyInfo(models.Model):
     _name = 'hr.employee.family'
     _description = 'HR Employee Family'
 
-    member_name = fields.Char(string='Name', related='employee_ref.name', store=True)
-    employee_ref = fields.Many2one(string="Is Employee",
-                                   help='If family member currently is an employee of same company, '
-                                        'then please tick this field',
-                                   comodel_name='hr.employee')
+    member_name = fields.Char(string='Name')
     employee_id = fields.Many2one(string="Employee", help='Select corresponding Employee', comodel_name='hr.employee',
                                   invisible=1)
     relation = fields.Selection([('father', 'Father'),
@@ -57,7 +53,7 @@ class HrEmployeeFamilyInfo(models.Model):
                                  ('daughter', 'Daughter'),
                                  ('son', 'Son'),
                                  ('wife', 'Wife')], string='Relationship', help='Relation with employee')
-    member_contact = fields.Char(string='Contact No', related='employee_ref.personal_mobile', store=True)
+    member_contact = fields.Char(string='Contact No')
 
 
 class HrEmployee(models.Model):
