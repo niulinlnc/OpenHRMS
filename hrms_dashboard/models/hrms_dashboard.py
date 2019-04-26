@@ -51,12 +51,12 @@ class Employee(models.Model):
             result = self.env.cr.dictfetchall()
             broad_factor = result[0]['broad_factor']
             if employee[0]['birthday']:
-                diff = relativedelta(datetime.today(), datetime.strptime(employee[0]['birthday'], '%Y-%m-%d'))
+                diff = relativedelta(datetime.today(), datetime.strptime(str(employee[0]['birthday']), '%Y-%m-%d'))
                 age = diff.years
             else:
                 age = False
             if employee[0]['joining_date']:
-                diff = relativedelta(datetime.today(), datetime.strptime(employee[0]['joining_date'], '%Y-%m-%d'))
+                diff = relativedelta(datetime.today(), datetime.strptime(str(employee[0]['joining_date']), '%Y-%m-%d'))
                 years = diff.years
                 months = diff.months
                 days = diff.days

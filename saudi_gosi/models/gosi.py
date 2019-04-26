@@ -42,11 +42,11 @@ class Gosi(models.Model):
 
     _inherit = 'hr.employee'
 
-    type = fields.Selection([('saudi','Saudi')],string='Type')
+    type = fields.Selection([('saudi','Saudi')], string='Type')
     gosi_number = fields.Char(string='GOSI Number')
     issue_date = fields.Date(string='Issued Date')
-    age = fields.Char(string='AGE',required=True)
-    limit = fields.Boolean(string='Eligible For GOSI',compute='compute_age',default=False)
+    age = fields.Char(string='AGE', required=False)
+    limit = fields.Boolean(string='Eligible For GOSI', compute='compute_age', default=False)
 
     def compute_age(self):
         for res in self:
