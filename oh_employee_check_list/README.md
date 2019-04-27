@@ -15,8 +15,7 @@ If you have any question/queries/additional works on OpenHRMS or this module, Yo
 Contacts
 --------
 info - info@cybrosys.com
-Nilmar Shereef - odoo@cybrosys.com
-Kavya Raveendran - v12 
+Nilmar Shereef - shereef@cybrosys.in
 
 Website:
 https://www.openhrms.com

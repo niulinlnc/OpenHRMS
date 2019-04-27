@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 ###################################################################################
+#    A part of Open HRMS Project <https://www.openhrms.com>
 #
 #    Cybrosys Technologies Pvt. Ltd.
 #    Copyright (C) 2018-TODAY Cybrosys Technologies (<https://www.cybrosys.com>).
-#    Author: Cybrosys Techno Solutions (<https://www.cybrosys.com>)
+#    Author: Nilmar Shereef (<https://www.cybrosys.com>)
 #
 #    This program is free software: you can modify
 #    it under the terms of the GNU Affero General Public License (AGPL) as
@@ -19,29 +20,28 @@
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 ###################################################################################
-
 {
-    'name': 'Employee Checklist',
+    'name': 'Open HRMS Employee Checklist',
     'version': '12.0.1.0.0',
     'summary': """Manages Employee's Entry & Exit Process""",
-    'description': """This module is used to remembering the employee's entry and exit progress.""",
+    'description': """This module is a part of OH project, used to remembering the
+                      employee's entry and exit progress.""",
     'category': 'Generic Modules/Human Resources',
     'author': 'Cybrosys Techno Solutions',
     'company': 'Cybrosys Techno Solutions',
-    'website': "https://www.cybrosys.com",
+    'website': "https://www.openhrms.com",
     'depends': ['base', 'oh_employee_documents_expiry'],
     'data': [
         'security/ir.model.access.csv',
-        'views/employee_form_inherit_view.xml',
         'views/employee_check_list_view.xml',
-        'views/checklist_view.xml',
+        'views/employee_form_inherit_view.xml',
         'views/settings_view.xml',
+        'views/checklist_view.xml',
     ],
-    'demo': [],
+    'demo': ['data/data.xml'],
     'images': ['static/description/banner.jpg'],
     'license': 'AGPL-3',
     'installable': True,
     'auto_install': False,
     'application': False,
 }
-
