@@ -359,10 +359,12 @@ group by hr_employee.department_id,hr_department.name""")
 
         for line in join_data:
             match = list(filter(lambda d: d['l_month'].replace(' ', '') == line[0].replace(' ', ''), join_trend))
-            match[0]['count'] = line[1]
+            if match:
+                match[0]['count'] = line[1]
         for line in resign_data:
             match = list(filter(lambda d: d['l_month'].replace(' ', '') == line[0].replace(' ', ''), resign_trend))
-            match[0]['count'] = line[1]
+            if match:
+                match[0]['count'] = line[1]
         for join in join_trend:
             join['l_month'] = join['l_month'].split(' ')[:1][0].strip()[:3]
         for resign in resign_trend:
