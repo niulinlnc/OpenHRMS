@@ -30,11 +30,11 @@ class MenuThemes(models.Model):
     enable_checklist = fields.Boolean(string='Enable Checklist Progress in Kanban?')
 
     @api.multi
-    def set_enable_checklist(self):
-        ir_values = self.env['ir.values']
-        enable_checklist = self.enable_checklist
-        ir_values.set_default('hr.settings', 'enable_checklist', enable_checklist)
-        emp_obj = self.env['hr.employee'].sudo().search([])
-        for each in emp_obj:
-            each.write({'check_list_enable': enable_checklist})
+    def set_values(self):
+        super(HRSettings, self).set_values()
+        self.env['ir.config_parameter'].sudo().set_param('employee_check_list.enable_checklist',
+                                                         self.enable_checklist)
+        emp_obj = self.env['hr.employee'].search([])
+        for rec in emp_obj:
+            rec.write({'check_list_enable': self.enable_checklist})
 

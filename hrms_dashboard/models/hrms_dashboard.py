@@ -51,12 +51,12 @@ class Employee(models.Model):
             result = self.env.cr.dictfetchall()
             broad_factor = result[0]['broad_factor']
             if employee[0]['birthday']:
-                diff = relativedelta(datetime.today(), datetime.strptime(str(employee[0]['birthday']), '%Y-%m-%d'))
+                diff = relativedelta(datetime.today(), employee[0]['birthday'])
                 age = diff.years
             else:
                 age = False
             if employee[0]['joining_date']:
-                diff = relativedelta(datetime.today(), datetime.strptime(str(employee[0]['joining_date']), '%Y-%m-%d'))
+                diff = relativedelta(datetime.today(), employee[0]['joining_date'])
                 years = diff.years
                 months = diff.months
                 days = diff.days
@@ -105,7 +105,7 @@ class Employee(models.Model):
         on e.address_id = rp.id
         left join res_country rc
         on rc.id = rp.country_id
-        where state ='confirm'
+        where e.state ='confirm'
         and (e.date_begin >= now()
         and e.date_begin <= now() + interval '15 day')
         or (e.date_end >= now()
@@ -237,7 +237,8 @@ group by hr_employee.department_id,hr_department.name""")
                     if month.replace(' ', '') == line[0].replace(' ', ''):
                         match = list(filter(lambda d: d['l_month'] in [month], graph_result))[0]['leave']
                         dept_name = self.env['hr.department'].browse(line[1]).name
-                        match[dept_name] = result_lines[line]['days']
+                        if match:
+                            match[dept_name] = result_lines[line]['days']
         for result in graph_result:
             result['l_month'] = result['l_month'].split(' ')[:1][0].strip()[:3] + " " + result['l_month'].split(' ')[1:2][0]
         return graph_result, department_list
@@ -319,7 +320,8 @@ group by hr_employee.department_id,hr_department.name""")
             result_lines = rf.to_dict('index')
             for line in result_lines:
                 match = list(filter(lambda d: d['l_month'].replace(' ', '') == line.replace(' ', ''), graph_result))
-                match[0]['leave'] = result_lines[line]['days']
+                if match:
+                    match[0]['leave'] = result_lines[line]['days']
         for result in graph_result:
             result['l_month'] = result['l_month'].split(' ')[:1][0].strip()[:3] + " " + result['l_month'].split(' ')[1:2][0]
         return graph_result
