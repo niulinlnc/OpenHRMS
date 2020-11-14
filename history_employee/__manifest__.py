@@ -33,11 +33,10 @@
     'depends': ['hr', 'hr_contract', 'oh_employee_creation_from_user'],
     'data': ['views/employee_history.xml',
              'views/history_views.xml',
-             'security/secure.xml',
              'security/ir.model.access.csv'
              ],
     'demo': [],
-    'images': ['static/description/banner.gif'],
+    'images': ['static/description/banner.png'],
     'license': 'AGPL-3',
     'installable': True,
     'auto_install': False,

@@ -22,7 +22,7 @@
 ###################################################################################
 {
     'name': 'Open HRMS Official Announcements',
-    'version': '13.0.2.0.0',
+    'version': '13.0.2.0.2',
     'summary': """Managing Official Announcements""",
     'description': 'This module helps you to manage hr official announcements',
     'category': 'Generic Modules/Human Resources',
@@ -35,8 +35,8 @@
         'security/reward_security.xml',
         'views/hr_announcement_view.xml',
     ],
-    'demo': [],
-    'images': ['static/description/banner.jpg'],
+    'demo': ['data/demo_data.xml'],
+    'images': ['static/description/banner.png'],
     'license': 'AGPL-3',
     'installable': True,
     'auto_install': False,

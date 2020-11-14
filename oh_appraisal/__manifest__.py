@@ -38,7 +38,8 @@
         'views/hr_appraisal_form_view.xml',
         'data/hr_appraisal_stages.xml'
     ],
-    'images': ["static/description/banner.jpg"],
+    'demo': ['data/demo_data.xml'],
+    'images': ["static/description/banner.png"],
     'license': "AGPL-3",
     'installable': True,
     'application': False,

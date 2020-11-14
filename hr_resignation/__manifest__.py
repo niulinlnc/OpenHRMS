@@ -30,7 +30,7 @@
     'depends': ['hr', 'hr_employee_updation', 'mail'],
     'category': 'Generic Modules/Human Resources',
     'maintainer': 'Cybrosys Techno Solutions',
-    'demo': [],
+    'demo': ['data/demo_data.xml'],
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
@@ -43,7 +43,7 @@
     'installable': True,
     'application': False,
     'auto_install': False,
-    'images': ['static/description/banner.jpg'],
+    'images': ['static/description/banner.png'],
     'license': 'AGPL-3',
 }
 
